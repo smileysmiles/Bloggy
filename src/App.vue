@@ -1,31 +1,46 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <Menu></Menu>
+
+
+    <v-content>
+      <v-container fluid="">
+        <router-view></router-view>
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
+<script>
+import Menu from './components/Menu';
+
+export default {
+  name: 'App',
+  components: {
+    Menu,
+  },
+  data: () => ({
+    item: 1,
+      items: [
+        { text: 'Real-Time', icon: 'mdi-clock' },
+        { text: 'Audience', icon: 'mdi-account' },
+        { text: 'Conversions', icon: 'mdi-flag' },
+      ],
+  }),
+};
+</script>
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 #nav {
   padding: 30px;
 }
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #4c502c;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #b9425c;
 }
+
 </style>
